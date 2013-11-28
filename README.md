@@ -24,18 +24,22 @@ Here's some ideas:
 </t:piechart>
 ```
 
-[Bar Chart](http://g.raphaeljs.com/reference.html#Paper.barchart)
+[Line Chart](http://g.raphaeljs.com/reference.html#Paper.linechart)
 ```xml
-<t:barchart locx="100" locy="200" width="250" height="250" options="{foo:'bar'}">
+<t:linechart locx="100" locy="200" width="250" height="250" options="{axis:'0 0 1 1'}">
    <t:loop source="allSeries" value="current">
-      <t:barseries label="current.label" values="current.values" color="current.color" />
+      <!-- values is a java.util.Map<Number,Number> -->
+      <t:lineseries label="current.label" values="current.values" color="current.color" />
    </t:loop>
    <t:chartpostprocessor>
-      function(chart) { 
-         chart.eachColumn(function() { ... });
+      var axisItems = chart.axis[0].text.items
+      for(var i = 0, l = axisItems.length; i < l; i++) {
+         var date = new Date(parseInt(axisItems[i].attr("text")));
+         // using the excellent dateFormat code from Steve Levithan
+         axisItems[i].attr("text", dateFormat(date, "mm/dd, htt"));
       }
    </t:chartpostprocessor>
-</t:barchar>
+</t:linechart>
 ```
 
 Documentation
