@@ -14,7 +14,7 @@ Here's some ideas:
 ```xml
 <t:piechart locx="100" locx="100" locy="200" radius="250" options="{legendpos: 'west'}">
    <t:loop source="myCollection" value="current">
-      <t:pieseries label="current.label" value="current.value" color="" />
+      <t:pieseries label="current.label" value="current.value" color="current.color" />
    </t:loop>
    <t:chartpostprocessor>
       function(chart) { 
@@ -27,8 +27,8 @@ Here's some ideas:
 [Bar Chart](http://g.raphaeljs.com/reference.html#Paper.barchart)
 ```xml
 <t:barchart locx="" locy="" width="" height="" options="{foo:'bar'}">
-   <t:loop source="allSeries" value="currentSeries">
-      <t:barseries label="currentSeries.label" values="currentSeries.values" />
+   <t:loop source="allSeries" value="current">
+      <t:barseries label="current.label" values="current.values" color="current.color" />
    </t:loop>
    <t:chartpostprocessor>
       function(chart) { 
