@@ -37,3 +37,7 @@ Here's some ideas:
    </t:chartpostprocessor>
 </t:barchar>
 ```
+
+Documentation
+- [Line Chart Tips](https://www.exratione.com/2011/10/a-few-tips-for-graphael-line-charts)
+- [Reference Documentation](http://g.raphaeljs.com/reference.html)
