@@ -12,28 +12,28 @@ Here's some ideas:
 
 [Pie Chart](http://g.raphaeljs.com/reference.html#Paper.piechart)
 ```xml
-	<t:piechart locx="100" locx="100" locy="200" radius="250" options="{legendpos: 'west'}">
-		<t:loop source="myCollection" value="current">
-			<t:pieseries label="current.label" value="current.value" color="" />
-		</t:loop>
-		<t:chartpostprocessor>
-		   function(chart) { 
-		      chart.hover(function() { ... }, function() { ... }) }
-		   }
-	  </t:chartpostprocessor>
-	</t:piechart>
+<t:piechart locx="100" locx="100" locy="200" radius="250" options="{legendpos: 'west'}">
+   <t:loop source="myCollection" value="current">
+      <t:pieseries label="current.label" value="current.value" color="" />
+   </t:loop>
+   <t:chartpostprocessor>
+      function(chart) { 
+         chart.hover(function() { ... }, function() { ... }) }
+      }
+   </t:chartpostprocessor>
+</t:piechart>
 ```
 
-[Line Chart](http://g.raphaeljs.com/reference.html#Paper.linechart)
+[Bar Chart](http://g.raphaeljs.com/reference.html#Paper.barchart)
 ```xml
-	<t:linechart locx="" locy="" width="" height="" options="{foo:'bar'}">
-		<t:loop source="allSeries" value="currentSeries">
-			<t:barseries label="currentSeries.label" values="currentSeries.values" />
-		</t:loop>
-	<t:linechart>
-	<t:chartpostprocessor>
-	   function(chart) { 
-	      chart.eachColumn(function() { ... });
-	   }
-	</t:chartpostprocessor>
+<t:barchart locx="" locy="" width="" height="" options="{foo:'bar'}">
+   <t:loop source="allSeries" value="currentSeries">
+      <t:barseries label="currentSeries.label" values="currentSeries.values" />
+   </t:loop>
+   <t:chartpostprocessor>
+      function(chart) { 
+         chart.eachColumn(function() { ... });
+      }
+   </t:chartpostprocessor>
+</t:chartpostprocessor>
 ```
