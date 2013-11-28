@@ -41,3 +41,4 @@ Here's some ideas:
 Documentation
 - [Line Chart Tips](https://www.exratione.com/2011/10/a-few-tips-for-graphael-line-charts)
 - [Reference Documentation](http://g.raphaeljs.com/reference.html)
+- References to ```axisxstep``` and ```axisystep``` [here](https://gist.github.com/boazsender/447379)
