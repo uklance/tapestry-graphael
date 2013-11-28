@@ -32,11 +32,13 @@ Here's some ideas:
       <t:lineseries label="current.label" values="current.values" color="current.color" />
    </t:loop>
    <t:chartpostprocessor>
-      var axisItems = chart.axis[0].text.items
-      for(var i = 0, l = axisItems.length; i < l; i++) {
-         var date = new Date(parseInt(axisItems[i].attr("text")));
-         // using the excellent dateFormat code from Steve Levithan
-         axisItems[i].attr("text", dateFormat(date, "mm/dd, htt"));
+      function(chart) {
+         var axisItems = chart.axis[0].text.items
+         for(var i = 0, l = axisItems.length; i < l; i++) {
+            var date = new Date(parseInt(axisItems[i].attr("text")));
+            // using the excellent dateFormat code from Steve Levithan
+            axisItems[i].attr("text", dateFormat(date, "mm/dd, htt"));
+         }
       }
    </t:chartpostprocessor>
 </t:linechart>
