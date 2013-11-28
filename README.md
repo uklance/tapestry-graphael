@@ -12,7 +12,7 @@ Here's some ideas:
 
 [Pie Chart](http://g.raphaeljs.com/reference.html#Paper.piechart)
 ```xml
-<t:piechart locx="100" locx="100" locy="200" radius="250" options="{legendpos: 'west'}">
+<t:piechart locx="100" locy="200" radius="250" options="{legendpos: 'west'}">
    <t:loop source="myCollection" value="current">
       <t:pieseries label="current.label" value="current.value" color="current.color" />
    </t:loop>
@@ -26,7 +26,7 @@ Here's some ideas:
 
 [Bar Chart](http://g.raphaeljs.com/reference.html#Paper.barchart)
 ```xml
-<t:barchart locx="" locy="" width="" height="" options="{foo:'bar'}">
+<t:barchart locx="100" locy="200" width="250" height="250" options="{foo:'bar'}">
    <t:loop source="allSeries" value="current">
       <t:barseries label="current.label" values="current.values" color="current.color" />
    </t:loop>
