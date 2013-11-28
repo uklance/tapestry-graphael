@@ -18,7 +18,7 @@ Here's some ideas:
    </t:loop>
    <t:chartpostprocessor>
       function(chart) { 
-         chart.hover(function() { ... }, function() { ... }) }
+         chart.hover(function() { ... }, function() { ... });
       }
    </t:chartpostprocessor>
 </t:piechart>
