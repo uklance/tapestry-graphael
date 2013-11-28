@@ -35,5 +35,5 @@ Here's some ideas:
          chart.eachColumn(function() { ... });
       }
    </t:chartpostprocessor>
-</t:chartpostprocessor>
+</t:barchar>
 ```
