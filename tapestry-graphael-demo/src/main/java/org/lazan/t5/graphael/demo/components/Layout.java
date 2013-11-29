@@ -11,7 +11,8 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 public class Layout {
 	private static final MenuGroup[] MENU_GROUPS = {
 		new MenuGroup("Charts",
-			new MenuItem("Pie Chart", "PieChartDemo")
+			new MenuItem("Pie Chart", "PieChartDemo"),
+			new MenuItem("Line Chart", "LineChartDemo")
 		)
 	};
 	
