@@ -34,8 +34,8 @@ public class PieChart {
 	@Parameter(defaultPrefix=BindingConstants.LITERAL, required=true)
 	private int radius;
 	
-	@Parameter(defaultPrefix=BindingConstants.LITERAL)
-	private JSONObject options;
+	@Parameter(defaultPrefix=BindingConstants.LITERAL, name="options")
+	private JSONObject optionsParam;
 
 	@Parameter(defaultPrefix=BindingConstants.LITERAL)
 	private RenderCommand postProcessor;
@@ -52,6 +52,8 @@ public class PieChart {
 	private ComponentResources componentResources;
 	
 	private List<PieSeriesModel> seriesList;
+	
+	private boolean showLegend;
 
 	@SetupRender
 	RenderCommand setupRender(MarkupWriter writer) {
@@ -59,6 +61,9 @@ public class PieChart {
 		PieModel pieModel = new PieModel() {
 			public void addSeries(PieSeriesModel series) {
 				seriesList.add(series);
+				if (series.getLabel() != null) {
+					showLegend = true;
+				}
 			}
 		};
 		
@@ -95,12 +100,13 @@ public class PieChart {
 		writer.element("div", "id", clientId);
 		componentResources.renderInformalParameters(writer);
 		writer.end();
-		if (options == null) {
-			options = new JSONObject();
-		}
+		JSONObject options = optionsParam == null ? new JSONObject() : new JSONObject(optionsParam);
 		JSONArray values = new JSONArray();
 		for (PieSeriesModel series : seriesList) {
 			values.put(series.getValue());
+			if (showLegend) {
+				options.append("legend", series.getLabel());
+			}
 		}
 		String script = String.format(
 			"Raphael('%s').piechart(%s, %s, %s, %s, %s)",
