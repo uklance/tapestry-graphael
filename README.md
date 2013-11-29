@@ -3,12 +3,12 @@ tapestry-graphael
 
 [Tapestry](http://tapestry.apache.org/) / [gRaphaël](http://g.raphaeljs.com) integration
 
-### Note, nothing implemented yet.
+### Note, not fully implemented yet.
 
 
-The idea is to provide a tapestry component library for rendering gRaphaël charts. By default, charting should not require any javascript coding. Advanced usage may require snippets of javascript.
+The idea is to provide a tapestry component library for rendering gRaphaël charts. Simple charts should not require any javascript coding. Simple charts can be decorated by a javascript ```postProcessor``` for advanced features such as animations.
 
-Here's some ideas:
+Here's some high level ideas:
 
 [Pie Chart](http://g.raphaeljs.com/reference.html#Paper.piechart)
 ```xml
@@ -16,11 +16,11 @@ Here's some ideas:
    <t:loop source="myCollection" value="current">
       <t:pieseries label="current.label" value="current.value" color="current.color" />
    </t:loop>
-   <t:chartpostprocessor>
+   <t:postprocessor>
       function(chart) { 
          chart.hover(function() { ... }, function() { ... });
       }
-   </t:chartpostprocessor>
+   </t:postprocessor>
 </t:piechart>
 ```
 
@@ -31,7 +31,7 @@ Here's some ideas:
       <!-- values is a java.util.Map<Number,Number> -->
       <t:lineseries label="current.label" values="current.values" color="current.color" />
    </t:loop>
-   <t:chartpostprocessor>
+   <t:postprocessor>
       function(chart) {
          var axisItems = chart.axis[0].text.items
          for(var i = 0, l = axisItems.length; i < l; i++) {
@@ -40,7 +40,7 @@ Here's some ideas:
             axisItems[i].attr("text", dateFormat(date, "mm/dd, htt"));
          }
       }
-   </t:chartpostprocessor>
+   </t:postprocessor>
 </t:linechart>
 ```
 
