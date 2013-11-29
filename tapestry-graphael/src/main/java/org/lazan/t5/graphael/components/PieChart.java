@@ -100,7 +100,7 @@ public class PieChart {
 		writer.element("div", "id", clientId);
 		componentResources.renderInformalParameters(writer);
 		writer.end();
-		JSONObject options = optionsParam == null ? new JSONObject() : new JSONObject(optionsParam);
+		JSONObject options = optionsParam == null ? new JSONObject() : new JSONObject(optionsParam.toCompactString());
 		JSONArray values = new JSONArray();
 		for (PieSeriesModel series : seriesList) {
 			values.put(series.getValue());
@@ -110,7 +110,7 @@ public class PieChart {
 		}
 		String script = String.format(
 			"Raphael('%s').piechart(%s, %s, %s, %s, %s)",
-			clientId, locx, locy, radius, values, options
+			clientId, locx, locy, radius, values.toCompactString(), options.toCompactString()
 		);
 		if (postProcessorMarkup != null) {
 			script = String.format("(%s)(%s)", postProcessorMarkup.trim(), script);
