@@ -32,6 +32,7 @@ Here's some high level ideas:
       <t:lineseries label="current.label" values="current.values" color="current.color" />
    </t:loop>
    <t:postprocessor>
+   <![CDATA[
       function(chart) {
          var axisItems = chart.axis[0].text.items
          for(var i = 0, l = axisItems.length; i < l; i++) {
@@ -40,6 +41,7 @@ Here's some high level ideas:
             axisItems[i].attr("text", dateFormat(date, "mm/dd, htt"));
          }
       }
+   ]]>
    </t:postprocessor>
 </t:linechart>
 ```
