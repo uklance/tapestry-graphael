@@ -8,10 +8,13 @@ import org.apache.tapestry5.MarkupWriter;
 import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.SupportsInformalParameters;
+import org.apache.tapestry5.dom.Element;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.internal.util.CollectionFactory;
 import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
+import org.apache.tapestry5.runtime.RenderCommand;
+import org.apache.tapestry5.runtime.RenderQueue;
 import org.apache.tapestry5.services.Environment;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
 import org.lazan.t5.graphael.model.PieModel;
@@ -33,7 +36,9 @@ public class PieChart {
 	private JSONObject options;
 
 	@Parameter(defaultPrefix=BindingConstants.LITERAL)
-	private String postProcessor;
+	private RenderCommand postProcessor;
+	
+	private String postProcessorMarkup;
 	
 	@Inject
 	private JavaScriptSupport jss;
@@ -46,7 +51,7 @@ public class PieChart {
 	
 	private List<PieSeriesModel> seriesList;
 
-	void setupRender() {
+	RenderCommand setupRender(MarkupWriter writer) {
 		seriesList = CollectionFactory.newList();
 		PieModel pieModel = new PieModel() {
 			public void addSeries(PieSeriesModel series) {
@@ -54,6 +59,19 @@ public class PieChart {
 			}
 		};
 		environment.push(PieModel.class, pieModel);
+		
+		if (postProcessor != null) {
+			writer.element("container");
+			return postProcessor;
+		}
+		return null;
+	}
+	
+	void beginRender(MarkupWriter writer) {
+		Element container = writer.getElement();
+		postProcessorMarkup = container.getChildMarkup();
+		writer.end();
+		container.remove();
 	}
 	
 	void afterRenderTemplate(MarkupWriter writer) {
@@ -74,8 +92,8 @@ public class PieChart {
 				"Raphael('%s').piechart(%s, %s, %s, %s, %s)",
 				clientId, locx, locy, radius, values, options
 		);
-		if (postProcessor != null) {
-			script = String.format("%s(%s)", postProcessor, script);
+		if (postProcessorMarkup != null) {
+			script = String.format("(%s)(%s)", postProcessorMarkup.trim(), script);
 		}
 		jss.addScript(script);
 	}

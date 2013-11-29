@@ -2,7 +2,7 @@
 <html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	xmlns:p="tapestry:parameter">
 	<head>
-		<title>Tapestry Stitch Demo</title>
+		<title>Tapestry gRaphaël Demo</title>
 		<style type="text/css">
 			body {
 			padding-top: 60px;
@@ -18,14 +18,9 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
-					<t:pagelink page="Index" class="brand">Tapestry Stitch Demo
+					<t:pagelink page="Index" class="brand">Tapestry gRaphaël Demo
 					</t:pagelink>
 					<div class="nav-collapse collapse">
-						<div class="fb-like navbar-text pull-right" data-href="http://tapestry-stitch.uklance.cloudbees.net"
-							data-send="false" data-layout="button_count" data-width="450"
-							data-show-faces="true">
-						</div>
-
 						<ul class="nav">
 							<li>
 							</li>

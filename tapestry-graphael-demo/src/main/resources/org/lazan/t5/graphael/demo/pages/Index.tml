@@ -1,4 +1,4 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
-	<h3>Tapestry Stitch</h3>
-	Sample components and concepts in Apache Tapestry 5
+	<h3>Tapestry gRaphaël</h3>
+	Charting components for <a href="http://tapestry.apache.org">tapestry</a> based on <a href="http://g.raphaeljs.com">gRaphaël</a>
 </t:layout>
