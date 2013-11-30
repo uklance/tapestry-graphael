@@ -1,7 +1,7 @@
 tapestry-graphael
 =================
 
-[Tapestry](http://tapestry.apache.org/) / [gRaphaël](http://g.raphaeljs.com) integration
+Charting components for [Tapestry](http://tapestry.apache.org/) based on [gRaphaël](http://g.raphaeljs.com)
 
 ### Note, not fully implemented yet.
 
