@@ -53,7 +53,8 @@ public class PieChart {
 	
 	private List<PieSeriesModel> seriesList;
 	
-	private boolean showLegend;
+	private boolean doLegend;
+	private boolean doColor;
 
 	@SetupRender
 	RenderCommand setupRender(MarkupWriter writer) {
@@ -62,7 +63,10 @@ public class PieChart {
 			public void addSeries(PieSeriesModel series) {
 				seriesList.add(series);
 				if (series.getLabel() != null) {
-					showLegend = true;
+					doLegend = true;
+				}
+				if (series.getColor() != null) {
+					doColor = true;
 				}
 			}
 		};
@@ -104,9 +108,8 @@ public class PieChart {
 		JSONArray values = new JSONArray();
 		for (PieSeriesModel series : seriesList) {
 			values.put(series.getValue());
-			if (showLegend) {
-				options.append("legend", series.getLabel());
-			}
+			if (doLegend) options.append("legend", series.getLabel());
+			if (doColor) options.append("colors", series.getColor());
 		}
 
 		String script = String.format(

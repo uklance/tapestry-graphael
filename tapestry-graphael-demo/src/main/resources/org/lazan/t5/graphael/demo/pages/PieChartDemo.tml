@@ -1,8 +1,8 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
 	<t:graphael.pieChart locx="200" locy="120" radius="100" options="{legendpos: 'west'}">
-		<t:graphael.pieSeries label="literal:%%.% - Foo" value="literal:100" />
-		<t:graphael.pieSeries label="literal:%%.% - Bar" value="literal:200" />
-		<t:graphael.pieSeries label="literal:%%.% - Baz" value="literal:300" />
+		<t:graphael.pieSeries label="literal:%%.% - Foo" value="literal:100" color="literal:red" />
+		<t:graphael.pieSeries label="literal:%%.% - Bar" value="literal:200" color="literal:green" />
+		<t:graphael.pieSeries label="literal:%%.% - Baz" value="literal:300" color="literal:blue" />
 		<p:postProcessor>
 			function(pie, raphael) { 
                 pie.hover(function () {

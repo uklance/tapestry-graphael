@@ -1,4 +1,9 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
 	<h3>Tapestry gRaphaël</h3>
 	Charting components for <a href="http://tapestry.apache.org">tapestry</a> based on <a href="http://g.raphaeljs.com">gRaphaël</a>
+	<br />
+	<br />
+	
+	Source code available at <a href="https://github.com/uklance/tapestry-graphael">https://github.com/uklance/tapestry-graphael</a>
+	
 </t:layout>

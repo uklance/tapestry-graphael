@@ -1,8 +1,8 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
 	<t:graphael.lineChart locx="50" locy="50" width="300" height="200">
-		<t:graphael.lineSeries label="literal:Sin" values="sinValues" />
-		<t:graphael.lineSeries label="literal:Cos" values="cosValues" />
-		<t:graphael.lineSeries label="literal:Zero" values="zeroValues" />
+		<t:graphael.lineSeries label="literal:Sin" values="sinValues" color="literal:red" />
+		<t:graphael.lineSeries label="literal:Cos" values="cosValues" color="literal:green" />
+		<t:graphael.lineSeries label="literal:Zero" values="zeroValues" color="literal:blue" />
 		<p:postprocessor>linechartdemo.postprocessor</p:postprocessor>
 	</t:graphael.lineChart>
 
@@ -10,5 +10,6 @@
 	<t:stitch.tabGroup>
 		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/LineChartDemo.tml" />
 		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/LineChartDemo.java" />
+		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/LineChartDemo.js" />
 	</t:stitch.tabGroup>
 </t:layout> 

@@ -57,12 +57,15 @@ public class LineChart {
 	
 	private List<LineSeriesModel> seriesList;
 	
+	private boolean doColor;
+	
 	@SetupRender
 	RenderCommand setupRender(MarkupWriter writer) {
 		seriesList = CollectionFactory.newList();
 		LineModel lineModel = new LineModel() {
 			public void addSeries(LineSeriesModel series) {
 				seriesList.add(series);
+				if (series.getColor() != null) doColor = true;
 			}
 		};
 		
@@ -112,6 +115,8 @@ public class LineChart {
 			}
 			allXValues.put(xValues);
 			allYValues.put(yValues);
+			
+			if (doColor) options.append("colors", series.getColor());
 		}
 		String script = String.format(
 			"var r = Raphael('%s'); " +
