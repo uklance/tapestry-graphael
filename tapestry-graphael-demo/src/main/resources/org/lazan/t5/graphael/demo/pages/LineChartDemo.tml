@@ -1,30 +1,14 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
-	<t:graphael.lineChart locx="10" locy="10" width="300" height="220">
-		<t:graphael.lineSeries label="literal:%%.% - Foo" values="fooValues" />
-		<t:graphael.lineSeries label="literal:%%.% - Bar" values="barValues" />
-		<t:graphael.lineSeries label="literal:%%.% - Baz" values="bazValues" />
-		<!-- 
-		<p:postProcessor>
-			function(pie) { 
-                pie.hover(function () {
-                    this.sector.stop();
-                    this.sector.scale(1.1, 1.1, this.cx, this.cy);
-
-                    if (this.label) {
-                        this.label[0].stop();
-                        this.label[0].attr({ r: 7.5 });
-                        this.label[1].attr({ "font-weight": 800 });
-                    }
-                }, function () {
-                    this.sector.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
-
-                    if (this.label) {
-                        this.label[0].animate({ r: 5 }, 500, "bounce");
-                        this.label[1].attr({ "font-weight": 400 });
-                    }
-                });
-           }		
-		</p:postProcessor>
-		-->
+	<t:graphael.lineChart locx="50" locy="50" width="300" height="200">
+		<t:graphael.lineSeries label="literal:Sin" values="sinValues" />
+		<t:graphael.lineSeries label="literal:Cos" values="cosValues" />
+		<t:graphael.lineSeries label="literal:Zero" values="zeroValues" />
+		<p:postprocessor>linechartdemo.postprocessor</p:postprocessor>
 	</t:graphael.lineChart>
+
+	<h3>Source</h3>
+	<t:stitch.tabGroup>
+		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/LineChartDemo.tml" />
+		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/LineChartDemo.java" />
+	</t:stitch.tabGroup>
 </t:layout> 

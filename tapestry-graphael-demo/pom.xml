@@ -18,6 +18,11 @@
 			<artifactId>tapestry-core</artifactId>
 			<version>${tapestry.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.lazan</groupId>
+			<artifactId>tapestry-stitch</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -64,4 +69,11 @@
         <!-- http://maven.apache.org/plugins/maven-resources-plugin/examples/binaries-filtering.html -->
         <tapestry.version>5.3.7</tapestry.version>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>uklance-github</id>
+			<url>https://github.com/uklance/releases/raw/master</url>
+		</repository>
+	</repositories>
 </project>

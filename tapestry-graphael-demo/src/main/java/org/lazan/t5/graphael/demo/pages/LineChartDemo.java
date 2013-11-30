@@ -1,21 +1,48 @@
 package org.lazan.t5.graphael.demo.pages;
 
-import org.lazan.t5.graphael.model.Point;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.lazan.t5.graphael.model.Point;
+import org.apache.tapestry5.annotations.Import;
+
+@Import(library = "LineChartDemo.js")
 public class LineChartDemo {
-	public Point[] getFooValues() {
-		return new Point[] {
-			new Point(0, 0), new Point(1, 1), new Point(2, 2)  
-		};
+	public List<Point> getSinValues() {
+		return createPoints(-5, 5, new Function() {
+			public Double apply(Double number) {
+				return Math.sin(number);
+			}
+		});
 	}
-	public Point[] getBarValues() {
-		return new Point[] {
-			new Point(3, 0), new Point(2, 1), new Point(1, 2)  
-		};
+	
+	public List<Point> getCosValues() {
+		return createPoints(-5, 5, new Function() {
+			public Double apply(Double number) {
+				return Math.cos(number);
+			}
+		});
 	}
-	public Point[] getBazValues() {
-		return new Point[] {
-			new Point(4, 2), new Point(3, 3), new Point(1, 2)
-		};
-	};
+	
+	public List<Point> getZeroValues() {
+		return createPoints(-5, 5, new Function() {
+			public Double apply(Double number) {
+				return 0d;
+			}
+		});
+	}
+	
+	protected List<Point> createPoints(int xStart, int xEnd, Function function) {
+		double step = 0.1;
+		int pointCount = (int) ((xEnd - xStart) / step);
+		List<Point> points = new ArrayList<Point>(pointCount);
+		for (double x = xStart; x <= xEnd; x += step) {
+			points.add(new Point(x, function.apply(x)));
+		}
+		return points;
+	}
+	
+	static interface Function {
+		Double apply(Double number);
+	}
 }

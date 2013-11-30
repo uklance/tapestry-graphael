@@ -114,12 +114,13 @@ public class LineChart {
 			allYValues.put(yValues);
 		}
 		String script = String.format(
-			"Raphael('%s').linechart(%s, %s, %s, %s, %s, %s, %s)",
+			"var r = Raphael('%s'); " +
+			"var chart = r.linechart(%s, %s, %s, %s, %s, %s, %s); ",
 			clientId, locx, locy, width, height, allXValues.toCompactString(), allYValues.toCompactString(), options.toCompactString()
 		);
 		if (postProcessorMarkup != null) {
-			script = String.format("(%s)(%s)", postProcessorMarkup.trim(), script);
+			script += String.format("(%s)(chart, r);", postProcessorMarkup);
 		}
-		jss.addScript(script);
+		jss.addScript(String.format("(function() {%s})()", script));
 	}
 }

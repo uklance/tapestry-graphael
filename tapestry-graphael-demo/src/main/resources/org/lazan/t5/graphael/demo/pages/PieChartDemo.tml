@@ -4,7 +4,7 @@
 		<t:graphael.pieSeries label="literal:%%.% - Bar" value="literal:200" />
 		<t:graphael.pieSeries label="literal:%%.% - Baz" value="literal:300" />
 		<p:postProcessor>
-			function(pie) { 
+			function(pie, raphael) { 
                 pie.hover(function () {
                     this.sector.stop();
                     this.sector.scale(1.1, 1.1, this.cx, this.cy);
@@ -25,4 +25,10 @@
            }		
 		</p:postProcessor>
 	</t:graphael.pieChart>
+	
+	<h3>Source</h3>
+	<t:stitch.tabGroup>
+		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/PieChartDemo.tml" />
+		<t:stitch.codeTab source="classpath:org/lazan/t5/graphael/demo/pages/PieChartDemo.java" />
+	</t:stitch.tabGroup>
 </t:layout> 

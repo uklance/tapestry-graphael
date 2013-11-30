@@ -108,13 +108,15 @@ public class PieChart {
 				options.append("legend", series.getLabel());
 			}
 		}
+
 		String script = String.format(
-			"Raphael('%s').piechart(%s, %s, %s, %s, %s)",
+			"var r = Raphael('%s'); " +
+			"var chart = r.piechart(%s, %s, %s, %s, %s); ",
 			clientId, locx, locy, radius, values.toCompactString(), options.toCompactString()
 		);
 		if (postProcessorMarkup != null) {
-			script = String.format("(%s)(%s)", postProcessorMarkup.trim(), script);
+			script += String.format("(%s)(chart, r);", postProcessorMarkup);
 		}
-		jss.addScript(script);
+		jss.addScript(String.format("(function() {%s})()", script));
 	}
 }
