@@ -1,4 +1,5 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
+	<h3>Pie Chart Demo</h3>
 	<t:graphael.pieChart locx="200" locy="120" radius="100" options="{legendpos: 'west'}">
 		<t:graphael.pieSeries label="literal:%%.% - Foo" value="literal:100" color="literal:red" />
 		<t:graphael.pieSeries label="literal:%%.% - Bar" value="literal:200" color="literal:green" />
@@ -25,6 +26,8 @@
            }		
 		</p:postProcessor>
 	</t:graphael.pieChart>
+	
+	<t:pieChartDocumentation />
 	
 	<h3>Source</h3>
 	<t:stitch.tabGroup>

@@ -2,7 +2,7 @@ package org.lazan.t5.graphael.components;
 
 import org.apache.tapestry5.annotations.Environmental;
 import org.apache.tapestry5.annotations.Parameter;
-import org.lazan.t5.graphael.model.PieModel;
+import org.lazan.t5.graphael.model.PieChartModel;
 import org.lazan.t5.graphael.model.PieSeriesModel;
 
 public class PieSeries {
@@ -16,7 +16,7 @@ public class PieSeries {
 	private String color;
 	
 	@Environmental
-	private PieModel model;
+	private PieChartModel model;
 	
 	void afterRender() {
 		PieSeriesModel series = new PieSeriesModel();

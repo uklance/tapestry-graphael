@@ -19,7 +19,7 @@ import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.runtime.RenderCommand;
 import org.apache.tapestry5.services.Environment;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
-import org.lazan.t5.graphael.model.PieModel;
+import org.lazan.t5.graphael.model.PieChartModel;
 import org.lazan.t5.graphael.model.PieSeriesModel;
 
 @Import(library={ "raphael.js", "g.raphael-min.js", "g.pie-min.js" })
@@ -59,7 +59,7 @@ public class PieChart {
 	@SetupRender
 	RenderCommand setupRender(MarkupWriter writer) {
 		seriesList = CollectionFactory.newList();
-		PieModel pieModel = new PieModel() {
+		PieChartModel pieModel = new PieChartModel() {
 			public void addSeries(PieSeriesModel series) {
 				seriesList.add(series);
 				if (series.getLabel() != null) {
@@ -72,7 +72,7 @@ public class PieChart {
 		};
 		
 		// push the model onto the environment so that child components can add to it
-		environment.push(PieModel.class, pieModel);
+		environment.push(PieChartModel.class, pieModel);
 		
 		if (postProcessor != null) {
 			// add a container to the DOM, this will be removed later
@@ -98,7 +98,7 @@ public class PieChart {
 	
 	@AfterRenderBody
 	void afterRenderBody(MarkupWriter writer) {
-		environment.pop(PieModel.class);
+		environment.pop(PieChartModel.class);
 
 		String clientId = jss.allocateClientId(componentResources);
 		writer.element("div", "id", clientId);

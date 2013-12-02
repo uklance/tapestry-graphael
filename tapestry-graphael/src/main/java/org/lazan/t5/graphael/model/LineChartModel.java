@@ -1,5 +1,5 @@
 package org.lazan.t5.graphael.model;
 
-public interface LineModel {
+public interface LineChartModel {
 	void addSeries(LineSeriesModel series);
 }

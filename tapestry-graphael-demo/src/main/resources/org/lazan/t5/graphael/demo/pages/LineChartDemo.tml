@@ -1,10 +1,13 @@
 <t:layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter">
+	<h3>Line Chart Demo</h3>
 	<t:graphael.lineChart locx="50" locy="50" width="300" height="200">
 		<t:graphael.lineSeries label="literal:Sin" values="sinValues" color="literal:red" />
 		<t:graphael.lineSeries label="literal:Cos" values="cosValues" color="literal:green" />
 		<t:graphael.lineSeries label="literal:Zero" values="zeroValues" color="literal:blue" />
 		<p:postprocessor>linechartdemo.postprocessor</p:postprocessor>
 	</t:graphael.lineChart>
+	
+	<t:lineChartDocumentation />
 
 	<h3>Source</h3>
 	<t:stitch.tabGroup>

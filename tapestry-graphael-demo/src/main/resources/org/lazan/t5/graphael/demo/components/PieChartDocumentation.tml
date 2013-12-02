@@ -1,0 +1,82 @@
+<t:container xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+	<h4>PieChart Parameters:</h4>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Required?</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>locx</td>
+				<td>int</td>
+				<td>true</td>
+				<td>X location (pixels)</td>
+			</tr>
+			<tr>
+				<td>locy</td>
+				<td>int</td>
+				<td>true</td>
+				<td>Y location (pixels)</td>
+			</tr>
+			<tr>
+				<td>radius</td>
+				<td>int</td>
+				<td>true</td>
+				<td>Radius (pixels)</td>
+			</tr>
+			<tr>
+				<td>options</td>
+				<td>JSONObject</td>
+				<td>false</td>
+				<td>Additional options (see <a href="http://g.raphaeljs.com/reference.html#Paper.piechart">here</a>)</td>
+			</tr>
+			<tr>
+				<td>postProcessor</td>
+				<td>block</td>
+				<td>false</td>
+				<td>javascript function which takes 2 arguments, chart and raphael</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h4>PieSeries Parameters:</h4>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Required?</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>label</td>
+				<td>String</td>
+				<td>false</td>
+				<td>Series label (used in legend)</td>
+			</tr>
+			<tr>
+				<td>value</td>
+				<td>Number</td>
+				<td>true</td>
+				<td>Series value</td>
+			</tr>
+			<tr>
+				<td>color</td>
+				<td>String</td>
+				<td>false</td>
+				<td>Series <a href="http://en.wikipedia.org/wiki/Web_colors">web color</a></td>
+			</tr>
+		</tbody>
+	</table>
+	See <a href="http://g.raphaeljs.com/reference.html#Paper.piechart">here</a> for the g.Raphaël pie chart documentation.
+	
+		
+</t:container>

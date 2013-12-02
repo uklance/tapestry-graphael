@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.apache.tapestry5.annotations.AfterRender;
 import org.apache.tapestry5.annotations.Environmental;
 import org.apache.tapestry5.annotations.Parameter;
-import org.lazan.t5.graphael.model.LineModel;
+import org.lazan.t5.graphael.model.LineChartModel;
 import org.lazan.t5.graphael.model.LineSeriesModel;
 import org.lazan.t5.graphael.model.Point;
 
@@ -20,7 +20,7 @@ public class LineSeries {
 	private Collection<Point> values;
 	
 	@Environmental
-	private LineModel model;
+	private LineChartModel model;
 	
 	@AfterRender
 	void afterRender() {

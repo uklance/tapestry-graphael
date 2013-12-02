@@ -19,7 +19,7 @@ import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.runtime.RenderCommand;
 import org.apache.tapestry5.services.Environment;
 import org.apache.tapestry5.services.javascript.JavaScriptSupport;
-import org.lazan.t5.graphael.model.LineModel;
+import org.lazan.t5.graphael.model.LineChartModel;
 import org.lazan.t5.graphael.model.LineSeriesModel;
 import org.lazan.t5.graphael.model.Point;
 
@@ -62,7 +62,7 @@ public class LineChart {
 	@SetupRender
 	RenderCommand setupRender(MarkupWriter writer) {
 		seriesList = CollectionFactory.newList();
-		LineModel lineModel = new LineModel() {
+		LineChartModel lineModel = new LineChartModel() {
 			public void addSeries(LineSeriesModel series) {
 				seriesList.add(series);
 				if (series.getColor() != null) doColor = true;
@@ -70,7 +70,7 @@ public class LineChart {
 		};
 		
 		// push the model onto the environment so that child components can add to it
-		environment.push(LineModel.class, lineModel);
+		environment.push(LineChartModel.class, lineModel);
 		
 		if (postProcessor != null) {
 			// add a container to the DOM, this will be removed later
@@ -96,7 +96,7 @@ public class LineChart {
 	
 	@AfterRenderBody
 	void afterRenderBody(MarkupWriter writer) {
-		environment.pop(LineModel.class);
+		environment.pop(LineChartModel.class);
 
 		String clientId = jss.allocateClientId(componentResources);
 		writer.element("div", "id", clientId);

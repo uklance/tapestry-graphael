@@ -1,5 +1,5 @@
 package org.lazan.t5.graphael.model;
 
-public interface PieModel {
+public interface PieChartModel {
 	void addSeries(PieSeriesModel series);
 }
